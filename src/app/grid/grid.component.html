@@ -1,0 +1,24 @@
+<br>
+<button type="button" [routerLink]="[ParentForm]">ADD</button>
+<div class="box" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+  [scrollWindow]="false">
+  <table border="1">
+    <tr>
+      <th (click)="sort()" *ngFor="let col of displaycols"> {{col}} </th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let data of ParentData">
+      <td *ngFor="let col of cols">{{data[col]}}</td>
+      <td>
+        <div class="dropdown">
+          <button class="dropbtn">+</button>
+          <div class="dropdown-content">
+            <a href="" [routerLink]="[ParentForm, data.id]">Edit</a>
+            <a href="" (click)="!!deleteData(data)">Delete</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <button *ngIf="showNxt" (click)=next()>Next</button>
+</div>

@@ -1,0 +1,14 @@
+<br>
+<input type="text" placeholder="ID" [(ngModel)]="student.data.sc__sc_employees4__studentid5c14998f34841d67f32c3a10"><br>
+<input type="text" placeholder="Name" [(ngModel)]="student.data.sc__sc_employees4__name5c14999034841d68042c37a4"><br>
+<input type="text" placeholder="Age" [(ngModel)]="student.data.sc__sc_employees4__age5c14999034841d67e22c72d0"><br>
+<input type="radio" name="Gender" value="Male" [(ngModel)]="student.data.sc__sc_employees4__gender5c14999034841d67e22c72d4">Male
+<input type="radio" name="Gender" value="Female" [(ngModel)]="student.data.sc__sc_employees4__gender5c14999034841d67e22c72d4">Female<br>
+<select name="Course" [(ngModel)]="student.data.sc__sc_employees4__course5c14999134841d67d12c8356">
+  <option value="MCA">MCA</option>
+  <option value="MBA">MBA</option>
+</select><br>
+<input type="text" placeholder="Mobile Number" [(ngModel)]="student.data.sc__sc_employees4__mobile_number5c14999134841d67f32c3a14"><br>
+<input type="text" placeholder="Address" [(ngModel)]="student.data.sc__sc_employees4__address5c14999134841d67d12c835a"><br>
+<input type="button" value="Add" (click)="addStudent(student)" *ngIf="!showbtn">
+<input type="button" value="Modify" (click)="modStudent(student)" *ngIf="showbtn">
