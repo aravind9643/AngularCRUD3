@@ -1,8 +1,7 @@
 <div class="spinner-border text-primary loading" *ngIf="!ParentData" role="status">
   <span class="sr-only">Loading...</span>
 </div>
-<input type="text" [(ngModel)]="searchText" (ngModelChange)="searchData()">
-<!-- <button type="button" ()="searchData()">Search</button> -->
+<input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="searchData()">
 <div class="" *ngIf="ParentData">
   <button class="btn btn-primary" type="button" [routerLink]="[ParentForm]">ADD</button>
   <div class="box" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
