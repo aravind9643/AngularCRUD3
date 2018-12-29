@@ -12,6 +12,7 @@ import { FormComponent } from './form/form.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { StudentComponent } from './student/student.component';
 import { EmpformComponent } from './empform/empform.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmpformComponent } from './empform/empform.component';
     FormComponent,
     EmployeeComponent,
     StudentComponent,
-    EmpformComponent
+    EmpformComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

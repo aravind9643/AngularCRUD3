@@ -1,24 +1,28 @@
-<br>
-<button type="button" [routerLink]="[ParentForm]">ADD</button>
-<div class="box" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
-  [scrollWindow]="false">
-  <table border="1">
-    <tr>
-      <th (click)="sort()" *ngFor="let col of displaycols"> {{col}} </th>
-      <th>Action</th>
-    </tr>
-    <tr *ngFor="let data of ParentData">
-      <td *ngFor="let col of cols">{{data[col]}}</td>
-      <td>
-        <div class="dropdown">
-          <button class="dropbtn">+</button>
-          <div class="dropdown-content">
-            <a href="" [routerLink]="[ParentForm, data.id]">Edit</a>
-            <a href="" (click)="!!deleteData(data)">Delete</a>
-          </div>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <button *ngIf="showNxt" (click)=next()>Next</button>
+<div class="spinner-border text-primary loading" *ngIf="!ParentData" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<input type="text" [(ngModel)]="searchText" (ngModelChange)="searchData()">
+<!-- <button type="button" ()="searchData()">Search</button> -->
+<div class="" *ngIf="ParentData">
+  <button class="btn btn-primary" type="button" [routerLink]="[ParentForm]">ADD</button>
+  <div class="box" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+    [scrollWindow]="false">
+    <table class="table table-bordered text-center">
+      <tr>
+        <th *ngFor="let col of displaycols; let j=index"> {{col}} <a href="" *ngIf="j==1" (click)="!!sort()"><i class="fas fa-sort-down" [ngClass]="{'fa-sort-down': asc, 'fa-sort-up': !asc}"></i></a></th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let data of ParentData let i=index">
+        <td *ngFor="let col of cols">{{data[col]}}</td>
+        <td>
+          <a href="" (click)="!!showMenu(i)"><i class="fas fa-bars"></i></a>
+          <ul class="list-group" *ngIf="menuIndex == i && menu">
+            <li class="list-group-item"><a href="" [routerLink]="[ParentForm, data.id]">Edit</a></li>
+            <li class="list-group-item"><a href="" (click)="!!deleteData(data)">Delete</a></li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    <button class="btn btn-primary" *ngIf="showNxt" (click)=next()>Next</button>
+  </div>
 </div>

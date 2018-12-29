@@ -1,4 +1,9 @@
-<a [routerLink]="['/students']">Students</a> | 
-<a [routerLink]="['/employees']">Employees</a>
-
+<nav class="nav nav-tabs">
+    <a class="nav-link" [routerLink]="['/students']" [class.active] = "tab == 'students'" (click)="enableTab('students')">Students</a>
+    <a class="nav-link" [routerLink]="['/employees']" [class.active] = "tab == 'employees'" (click)="enableTab('employees')">Employees</a>
+</nav>
 <router-outlet></router-outlet>
+<!-- <input type="text" [(ngModel)]="searchText">
+<ul *ngFor="let item of arr | filter: searchText">
+    <li>{{item.name}}</li>
+</ul> -->

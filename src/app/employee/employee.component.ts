@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../api.service';
+import { FilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.css'],
+  providers: [FilterPipe]
 })
 export class EmployeeComponent implements OnInit {
   EmpData;
+  MainData;
   offset = 0;
   limit = 15;
   sort_type = "asc";
@@ -20,7 +23,7 @@ export class EmployeeComponent implements OnInit {
     "Address": "sc__sc_employees3__address5c13365c34841d68042c2f54"
   }
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private searchPipe: FilterPipe) { }
 
   ngOnInit() {
     this.loadData();
@@ -28,8 +31,14 @@ export class EmployeeComponent implements OnInit {
   loadData() {
     this.api.getEmpAll(this.limit, this.offset, this.sort_type).subscribe(resp => {
       this.EmpData = resp['data'];
+      this.MainData = resp['data'];
     });
   }
+
+  search(value) {
+    this.EmpData = this.searchPipe.transform(this.MainData, value);
+  }
+
   delete(obj) {
     if (confirm("Delete ?")) {
       this.api.deleteEmp(obj.id, obj.row_version).subscribe(resp => {

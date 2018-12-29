@@ -1,9 +1,10 @@
-<br>
-<input type="text" placeholder="ID" [(ngModel)]="Employee.data.sc__sc_employees3__empid5c13365b34841d68042c2f44"><br>
-<input type="text" placeholder="Name" [(ngModel)]="Employee.data.sc__sc_employees3__name5c13365b34841d68042c2f48"><br>
-<input type="radio" name="Gender" value="Male" [(ngModel)]="Employee.data.sc__sc_employees3__gender5c13365b34841d68042c2f4c">Male
-<input type="radio" name="Gender" value="Female" [(ngModel)]="Employee.data.sc__sc_employees3__gender5c13365b34841d68042c2f4c">Female<br>
-<input type="text" placeholder="Mobile Number" [(ngModel)]="Employee.data.sc__sc_employees3__mobile_no_5c13365c34841d68042c2f50"><br>
-<input type="text" placeholder="Address" [(ngModel)]="Employee.data.sc__sc_employees3__address5c13365c34841d68042c2f54"><br>
-<input type="button" value="Add" (click)="addEmp(Employee)" *ngIf="!showbtn">
-<input type="button" value="Modify" (click)="modEmp(Employee)" *ngIf="showbtn">
+<div class="form-group w-25">
+<input class="form-control" type="text" placeholder="ID" [(ngModel)]="Employee.data.sc__sc_employees3__empid5c13365b34841d68042c2f44"><br>
+<input class="form-control" type="text" placeholder="Name" [(ngModel)]="Employee.data.sc__sc_employees3__name5c13365b34841d68042c2f48"><br>
+<input class="form-check-inline" type="radio" name="Gender" value="Male" [(ngModel)]="Employee.data.sc__sc_employees3__gender5c13365b34841d68042c2f4c">Male
+<input class="form-check-inline" type="radio" name="Gender" value="Female" [(ngModel)]="Employee.data.sc__sc_employees3__gender5c13365b34841d68042c2f4c">Female<br>
+<input class="form-control" type="text" placeholder="Mobile Number" [(ngModel)]="Employee.data.sc__sc_employees3__mobile_no_5c13365c34841d68042c2f50"><br>
+<input class="form-control" type="text" placeholder="Address" [(ngModel)]="Employee.data.sc__sc_employees3__address5c13365c34841d68042c2f54"><br>
+<input class="btn btn-primary" type="button" value="Add" (click)="addEmp(Employee)" *ngIf="!showbtn">
+<input class="btn btn-primary" type="button" value="Modify" (click)="modEmp(Employee)" *ngIf="showbtn">
+</div>

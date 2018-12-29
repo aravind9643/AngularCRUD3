@@ -11,7 +11,11 @@ export class GridComponent implements OnInit {
   @Input() ParentForm;
   displaycols;
   cols;
+  searchText;
   showNxt = false;
+  menu = false;
+  menuIndex;
+  asc = true;
   constructor() { }
 
   ngOnInit() {
@@ -29,6 +33,8 @@ export class GridComponent implements OnInit {
 
   @Output()
   chageSort: EventEmitter<any> = new EventEmitter();
+  @Output()
+  searchItem: EventEmitter<any> = new EventEmitter();
 
   deleteData(obj) {
     this.delete.emit(obj);
@@ -40,7 +46,15 @@ export class GridComponent implements OnInit {
   next() {
     this.nextpage.emit();
   }
+  searchData() {
+    this.searchItem.emit(this.searchText);
+  }
   sort() {
     this.chageSort.emit();
+    this.asc = !this.asc;
+  }
+  showMenu(i) {
+    this.menuIndex = i;
+    this.menu = !this.menu;
   }
 }

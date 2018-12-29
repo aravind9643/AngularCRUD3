@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Task3';
+  tab = 'students'
+  enableTab(tab) {
+    switch (tab) {
+      case 'students':
+        this.tab = 'students';
+        break;
+      case 'employees':
+        this.tab = 'employees';
+        break;
+    }
+  }
+  arr = [
+    { 'name': 'aravind' },
+    { 'name': 'ravi' },
+    { 'name': 'rakesh' },
+    { 'name': 'kiran' }
+  ];
 }
